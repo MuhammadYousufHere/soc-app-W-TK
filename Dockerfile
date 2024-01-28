@@ -18,7 +18,7 @@ ENV REACT_APP_API_URL=$API_URL \
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
 RUN yarn install
 
