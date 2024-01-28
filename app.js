@@ -32,7 +32,11 @@ const db = new Database(process.env.MONGODB_URI, {
 
 db.connect().catch((err) => console.error('Error connecting to database:', err))
 
-app.use(cors())
+app.use(cors({  
+    origin: ['http://44.218.201.137:3000/', 'http://localhost:3000/'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+))
 app.use(morgan('dev'))
 app.use('/assets/userFiles', express.static(__dirname + '/assets/userFiles'))
 app.use(
