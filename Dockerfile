@@ -69,7 +69,7 @@ ENV CLASSIFIER_API_URL=${CLASSIFIER_API_URL}
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
 RUN yarn install
 
