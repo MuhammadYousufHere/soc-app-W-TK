@@ -8,14 +8,14 @@
 
 require('dotenv').config()
 const express = require('express')
-const adminRoutes = require('./routes/admin.route')
-const userRoutes = require('./routes/user.route')
-const postRoutes = require('./routes/post.route')
-const communityRoutes = require('./routes/community.route')
-const contextAuthRoutes = require('./routes/context-auth.route')
-const search = require('./controllers/search.controller')
-const Database = require('./config/database')
-const decodeToken = require('./middlewares/auth/decodeToken')
+const adminRoutes = require('./server/routes/admin.route.js')
+const userRoutes = require('./server/routes/user.route.js')
+const postRoutes = require('./server/routes/post.route.js')
+const communityRoutes = require('./server/routes/community.route.js')
+const contextAuthRoutes = require('./server/routes/context-auth.route.js')
+const search = require('./server/controllers/search.controller.js')
+const Database = require('./server/config/database.js')
+const decodeToken = require('./server/middlewares/auth/decodeToken.js')
 
 const app = express()
 
@@ -43,7 +43,7 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(passport.initialize())
-require('./config/passport.js')
+require('./server/config/passport.js')
 
 app.get('/server-status', (req, res) => {
   res.status(200).json({ message: 'Server is up and running!' })
