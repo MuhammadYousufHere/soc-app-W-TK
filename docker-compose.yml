@@ -8,9 +8,9 @@ services:
     restart: always
     ports:
       - 3000:80
-    env_file: ./client/.env
     environment:
       - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:4000
   be-service:
     container_name: be_container
     build:
