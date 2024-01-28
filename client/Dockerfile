@@ -32,7 +32,7 @@ FROM nginx:stable-perl as runner
 
 WORKDIR /app
 
-COPY --from=builder /app/dist /app/html
+COPY --from=builder /app/build /app/html
 
 COPY nginx.conf /app
 
